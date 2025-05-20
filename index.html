@@ -40,7 +40,8 @@ body[tags~="imagemap1"] {
   width: 85%; 
   height: 85%;
   background-image: url("./images/clouds.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   z-index: 10;
   opacity: 1;
   pointer-events: none; /* Allows clicks to go through */
@@ -53,7 +54,6 @@ body[tags~="imagemap1"] {
     visibility: hidden;
   }
 }
-
 tw-story[tags~="meadow"] {
   font-family: "Fenix", serif;
   font-size:100%;
