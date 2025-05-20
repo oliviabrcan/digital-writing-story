@@ -20,7 +20,7 @@ tw-passage[tags~="imagemap1"] {
     padding-top: 0 !important;
 }
 tw-passage[tags~="imagemap1"] img {
-    max-width: 120% !important;
+    max-width: 100% !important;
     max-height: calc(90vh) !important; /* You can also change this figure to just 90vh */
     object-fit: contain !important;
     background-size: contain;
@@ -31,11 +31,11 @@ tw-passage[tags~="imagemap1"] img {
 }
 #cloudOverlay {
   position: fixed;
-  top: 0;
+  top: 80px;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 250px;
+  width: 60%;
+  height: 60%;
   background-image: url("./images/clouds.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -70,7 +70,8 @@ tw-passage[tags~="imagemap2"] img {
   width: 60%;
   height: 60%;
   background-image: url("./images/d2cloud.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -102,7 +103,8 @@ tw-passage[tags~="imagemap3"] img {
   width: 60%;
   height: 60%;
   background-image: url("./images/d3cloud.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -134,7 +136,8 @@ tw-passage[tags~="imagemap4"] img {
   width: 60%;
   height: 60%;
   background-image: url("./images/d4cloud.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
