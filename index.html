@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play image-map.</tw-noscript></noscript></tw-story>
-<tw-storydata name="image-map" startnode="1" creator="Twine" creator-version="2.8.0" format="Harlowe" format-version="3.3.7" ifid="24E6D1DC-3FD1-4AE5-B907-4B368ECD2E3E" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story[tags~="map"] {
+<tw-storydata name="image-map" startnode="1" creator="Twine" creator-version="2.8.0" format="Harlowe" format-version="3.3.7" ifid="24E6D1DC-3FD1-4AE5-B907-4B368ECD2E3E" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
   font-family: "Fenix", serif;
   font-size:100%;
   color: black;
@@ -51,7 +51,13 @@ tw-passage[tags~="imagemap1"] img {
     visibility: hidden; /* This removes it from the DOM after fade */
   }
 }
-tw-story[tags~="mountain"] {
+tw-passage[tags~="meadow"] {
+  font-family: "Fenix", serif;
+  font-size:100%;
+  color: black;
+  background-color: white;
+}
+tw-passage[tags~="mountain"] {
   font-family: "Fenix", serif;
   font-size:100%;
   color: black;
@@ -91,7 +97,7 @@ tw-passage[tags~="imagemap2"] img {
     visibility: hidden; /* This removes it from the DOM after fade */
   }
 }
-tw-story[tags~="waterfall"] {
+tw-passage[tags~="waterfall"] {
   font-family: "Fenix", serif;
   font-size:100%;
   color: black;
@@ -165,7 +171,7 @@ tw-passage[tags~="imagemap4"] img {
     visibility: hidden; /* This removes it from the DOM after fade */
   }
 }
-tw-story[tags~="nightmare"] {
+tw-passage[tags~="nightmare"] {
   font-family: "Fenix", serif;
   font-size:100%;
   color: black;
