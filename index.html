@@ -30,11 +30,13 @@ tw-passage[tags~="imagemap1"] img {
 #cloudOverlay {
   position: fixed;
   top: 80px;
+  bottom: 0;
   left: 250px;
   width: 60%;
   height: 60%;
   background-image: url("./images/clouds.png");
-  background-size: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
