@@ -36,11 +36,11 @@ tw-passage[tags~="imagemap1"] img {
   left: 230px;
   width: 85%;
   height: 85%;
-  object-fit: contain !important;
   background-image: url("./images/clouds.png");
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 2;
+  overflow: hidden;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
   animation: fadeCloud 4s ease-in forwards;
