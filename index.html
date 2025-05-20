@@ -34,26 +34,26 @@ body[tags~="imagemap1"] {
   padding: 0;
 }
 #cloudOverlay {
-  position: fixed; /* Fixes the position relative to the viewport */
-  top: 0; /* Adjust as needed */
-  left: 0; /* Adjust as needed */
-  width: 80vw; /* Use full screen width */
-  height: 80vh; /* Use full screen height */
-  background-image: url("./images/clouds.png"); /* Your cloud image */
+  position: fixed;
+  top: 70px;
+  left: 230px;
+  width: 85%; 
+  height: 85%;
+  background-image: url("./images/clouds.png");
   background-size: cover;
-  background-position: center center;
   z-index: 10;
   opacity: 1;
-  pointer-events: none;
+  pointer-events: none; /* Allows clicks to go through */
   animation: fadeCloud 4s ease-in forwards;
 }
 @keyframes fadeCloud {
   0% { opacity: 1; }
-  100% { 
+  100% {
     opacity: 0;
     visibility: hidden;
   }
 }
+
 tw-story[tags~="meadow"] {
   font-family: "Fenix", serif;
   font-size:100%;
