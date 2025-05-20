@@ -32,26 +32,26 @@ tw-passage[tags~="imagemap1"] img {
 body[tags~="imagemap1"] {
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 #cloudOverlay {
   position: fixed; /* Fixes the position relative to the viewport */
-  top: 0; /* You can adjust this based on where you want it to appear */
-  left: 0; /* You can adjust this based on where you want it to appear */
-  width: 100%; /* Use full screen width or set a percentage as needed */
-  height: 100%; /* Use full screen height or set a percentage as needed */
+  top: 0; /* Adjust as needed */
+  left: 0; /* Adjust as needed */
+  width: 100vw; /* Use full screen width */
+  height: 100vh; /* Use full screen height */
   background-image: url("./images/clouds.png"); /* Your cloud image */
-  background-size: cover; /* Cover the entire screen with the image */
-  z-index: 10; /* Make sure it's on top of other content */
+  background-size: cover;
+  background-position: center center;
+  z-index: 10;
   opacity: 1;
-  pointer-events: none; /* Prevents it from blocking clicks */
-  animation: fadeCloud 4s ease-in forwards; /* Your fade animation */
+  pointer-events: none;
+  animation: fadeCloud 4s ease-in forwards;
 }
 @keyframes fadeCloud {
   0% { opacity: 1; }
   100% { 
     opacity: 0;
-    visibility: hidden; /* After fading, hide it */
+    visibility: hidden;
   }
 }
 tw-story[tags~="meadow"] {
