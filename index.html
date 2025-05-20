@@ -29,20 +29,24 @@ tw-passage[tags~="imagemap1"] img {
   padding: 0 !important;
   display: block !important;
 }
-#cloudOverlay {
-  position: fixed; /* Ensures it stays fixed to the screen */
-  top: 70px; /* Adjust this to your liking */
-  left: 230px; /* Adjust this as needed */
-  width: 85%; /* Adjust the width */
-  height: 85%; /* Adjust the height */
-  background-image: url("./images/clouds.png"); /* Use your cloud image URL here */
-  background-size: cover;
-  z-index: 10;
-  opacity: 1;
-  pointer-events: none; /* Allows clicks to go through */
-  animation: fadeCloud 4s ease-in forwards;
+body[tags~="imagemap1"] {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-
+#cloudOverlay {
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 0; /* You can adjust this based on where you want it to appear */
+  left: 0; /* You can adjust this based on where you want it to appear */
+  width: 100%; /* Use full screen width or set a percentage as needed */
+  height: 100%; /* Use full screen height or set a percentage as needed */
+  background-image: url("./images/clouds.png"); /* Your cloud image */
+  background-size: cover; /* Cover the entire screen with the image */
+  z-index: 10; /* Make sure it's on top of other content */
+  opacity: 1;
+  pointer-events: none; /* Prevents it from blocking clicks */
+  animation: fadeCloud 4s ease-in forwards; /* Your fade animation */
+}
 @keyframes fadeCloud {
   0% { opacity: 1; }
   100% { 
