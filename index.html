@@ -15,22 +15,6 @@
   color: black;
   background-color: white;
 }
-tw-passage[tags~="imagemap1"] {
-  margin-top: auto !important;
-  padding-top: 0 !important;
-}
-tw-passage[tags~="imagemap1"] img {
-  max-width: 100% !important;
-  max-height: calc(90vh - 2cm) !important; /* You can also change this figure to just 90vh */
-  object-fit: contain !important;
-  margin: 0 auto 0 auto !important;
-  padding: 0 !important;
-  display: block !important;
-}
-body[tags~="imagemap1"] {
-  margin: 0;
-  padding: 0;
-}
 #cloudOverlay {
   position: absolute;
   top: 20px;
@@ -50,6 +34,22 @@ body[tags~="imagemap1"] {
     opacity: 0;
     visibility: hidden;
   }
+}
+tw-passage[tags~="imagemap1"] {
+  margin-top: auto !important;
+  padding-top: 0 !important;
+}
+tw-passage[tags~="imagemap1"] img {
+  max-width: 100% !important;
+  max-height: calc(90vh - 2cm) !important; /* You can also change this figure to just 90vh */
+  object-fit: contain !important;
+  margin: 0 auto 0 auto !important;
+  padding: 0 !important;
+  display: block !important;
+}
+body[tags~="imagemap1"] {
+  margin: 0;
+  padding: 0;
 }
 tw-story[tags~="meadow"] {
   font-family: "Fenix", serif;
@@ -82,7 +82,7 @@ tw-passage[tags~="imagemap2"] img {
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
-  animation: fadeCloud 4s ease-in forwards;
+  animation: fadeCloud2 4s ease-in forwards;
 }
 @keyframes fadeCloud2 {
   0% { opacity: 1; }
@@ -122,7 +122,7 @@ tw-passage[tags~="imagemap3"] img {
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
-  animation: fadeCloud 4s ease-in forwards;
+  animation: fadeCloud3 4s ease-in forwards;
 }
 @keyframes fadeCloud3 {
   0% { opacity: 1; }
@@ -162,7 +162,7 @@ tw-passage[tags~="imagemap4"] img {
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
-  animation: fadeCloud 4s ease-in forwards;
+  animation: fadeCloud4 4s ease-in forwards;
 }
 @keyframes fadeCloud4 {
   0% { opacity: 1; }
