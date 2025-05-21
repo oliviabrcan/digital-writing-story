@@ -34,15 +34,18 @@ body[tags~="imagemap1"] {
 }
 #cloudOverlay {
   position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  background-image: url("./images/clouds.png");
-  z-index: 10;
+  top: 70px;
+  bottom: 0;
+  left: 230px;
+  width: 85%;
+  height: 85%;
+  background-image: url("./images/d2cloud.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
   opacity: 1;
-  pointer-events: none; /* Allows clicks to go through */
+  pointer-events: none; /* This prevents it from blocking clicks */
   animation: fadeCloud 4s ease-in forwards;
-  border-style: solid;
 }
 @keyframes fadeCloud {
   0% { opacity: 1; }
