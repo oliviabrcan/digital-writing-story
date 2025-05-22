@@ -58,16 +58,14 @@ tw-story[tags~="meadow"] {
   background-color: white;
 }
 #cloud2Overlay {
-  position: fixed;
-  top: 70px;
-  bottom: 0;
-  left: 230px;
-  width: 85%;
-  height: 85%;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 100%;
   background-image: url("./images/d2cloud.png");
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 2;
+  z-index: 3;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
   animation: fadeCloud2 4s ease-in forwards;
