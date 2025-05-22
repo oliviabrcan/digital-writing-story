@@ -23,6 +23,7 @@
   background-image: url("./images/clouds.png");
   background-size: contain;
   background-repeat: no-repeat;
+  margin: 0 auto 0 auto !important;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -134,12 +135,10 @@ tw-story[tags~="waterfall"] {
   background-color: #dedede;
 }
 #cloud4Overlay {
-  position: fixed;
-  top: 70px;
-  bottom: 0;
-  left: 230px;
-  width: 85%;
-  height: 85%;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 100%;
   background-image: url("./images/d4cloud.png");
   background-size: contain;
   background-repeat: no-repeat;
