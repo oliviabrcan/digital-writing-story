@@ -23,7 +23,6 @@
   background-image: url("./images/clouds.png");
   background-size: contain;
   background-repeat: no-repeat;
-  border-style: solid;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -70,7 +69,6 @@ tw-story[tags~="meadow"] {
   background-image: url("./images/d2cloud.png");
   background-size: contain;
   background-repeat: no-repeat;
-  border-style: solid;
   z-index: 3;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -95,6 +93,11 @@ tw-passage[tags~="imagemap2"] img {
   padding: 0 !important;
   display: block !important;
 }
+html, body[tags~="imagemap2"] {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 tw-story[tags~="mountain"] {
   font-family: "Fenix", serif;
   font-size:100%;
@@ -109,7 +112,6 @@ tw-story[tags~="mountain"] {
   background-image: url("./images/d3cloud.png");
   background-size: contain;
   background-repeat: no-repeat;
-  border-style: solid;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -134,6 +136,11 @@ tw-passage[tags~="imagemap3"] img {
   padding: 0 !important;
   display: block !important;
 }
+html, body[tags~="imagemap3"] {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 tw-story[tags~="waterfall"] {
   font-family: "Fenix", serif;
   font-size:100%;
@@ -148,7 +155,6 @@ tw-story[tags~="waterfall"] {
   background-image: url("./images/d4cloud.png");
   background-size: contain;
   background-repeat: no-repeat;
-  border-style: solid;
   z-index: 2;
   opacity: 1;
   pointer-events: none; /* This prevents it from blocking clicks */
@@ -172,6 +178,11 @@ tw-passage[tags~="imagemap4"] img {
   margin: 0 auto 0 auto !important;
   padding: 0 !important;
   display: block !important;
+}
+html, body[tags~="imagemap4"] {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 tw-story[tags~="nightmare"] {
   font-family: "Fenix", serif;
