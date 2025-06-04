@@ -63,10 +63,7 @@ tw-story[tags~="meadow"] {
 img.flower {
   float: right;
   width: 50%;
-}
-hr.flower {
-  clear: both;
-  border: 0;
+  display: flex;
 }
 #cloud2Overlay {
   position: absolute;
@@ -237,7 +234,10 @@ tw-story[tags~="nightmare"] {
 
  (live: 15s)[ (stop:) Towering green trees stretch for as far as I can see, and bushes littered with vibrant orange flowers are scattered between them, catching the sunlight like tiny balls of fire. I step toward the closest bush and gently lift the flower’s dark centre into view, which fades into bright orange petals.]
 
- (live: 27s)[ (stop:) &lt;img class=&quot;flower&quot; src=&quot;./images/flower.jpg&quot;&gt;]</tw-passagedata><tw-passagedata pid="3" name="mountain" tags="mountain" position="700,625" size="100,100">mountain
+&lt;div id=&quot;flower&quot;&gt;
+ (live: 27s)[ (stop:) &lt;img class=&quot;flower&quot; src=&quot;./images/flower.jpg&quot;&gt;]
+ &lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="3" name="mountain" tags="mountain" position="700,625" size="100,100">mountain
 
 [[dream map three]]</tw-passagedata><tw-passagedata pid="4" name="waterfall" tags="waterfall" position="1275,775" size="100,100">waterfall
 
@@ -319,7 +319,7 @@ tw-story[tags~="nightmare"] {
 [[nightmare]]&gt;
 &lt;/div&gt;
 
-&lt;div id=&quot;cloud4Overlay&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="awake" tags="" position="100,400" size="100,100"></tw-passagedata></tw-storydata>
+&lt;div id=&quot;cloud4Overlay&quot;&gt;&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
