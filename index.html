@@ -284,6 +284,38 @@ tw-story[tags~="35"] {
 tw-story[tags~="48"] {
   color: white;
   background: linear-gradient(black, #777777);
+}
+@-webkit-keyframes awake {
+	from { background-position: bottom; }
+	to   { background-position: top; }
+}
+@-moz-keyframes awake {
+	from { background-position: bottom; }
+	to   { background-position: top; }
+}
+@keyframes awake { 
+	from { background-position: bottom; }
+	to   { background-position: top; }
+}
+tw-story[tags~="awake"] {
+	background-image: linear-gradient(#fafaaa, #c5c5c5, #a5a5a5, #777777);
+	background-size: 100% 400%;
+	background-position: bottom;
+
+	-webkit-animation: awake 24s ease forwards;
+	-moz-animation: awake 24s ease forwards;
+	animation: awake 24s ease forwards;
+}
+#wakingUp {
+  opacity: 1;
+  animation: fadewakingUp 3s ease-in forwards;
+  animation-delay: 24s;
+}
+@keyframes fadewakingUp {
+  0% { opacity: 1; }
+  100% { 
+    opacity: 0;
+  }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">/*! Image Map Resizer (imageMapResizer.min.js ) - v1.0.10 - 2019-04-10
  *  Desc: Resize HTML imageMap to scaled image.
  *  Copyright: (c) 2019 David J. Bradshaw - dave@bradshaw.net
@@ -807,13 +839,16 @@ He chuckles dryly. “Your mind is here, that’s all I need.”
 
 He charges at me again with his tree branch, but I dive under it and sprint for the hut. If this realm is still alive, there must be other dreamers here keeping it that way. Damien screams at me to stop, but it only fuels me to run faster. I’m not letting him get away with this, and this time, I’m making sure all of us get home.
 
-(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;52]]] (stop:)]</tw-passagedata><tw-passagedata pid="61" name="52" tags="" position="250,2750" size="100,100">Golden light peeks down from underneath the clouds, and a faint noise beeps from somewhere behind me, getting louder as the sunlight sinks.
+(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;awake]]] (stop:)]</tw-passagedata><tw-passagedata pid="61" name="awake" tags="awake" position="250,2750" size="100,100">&lt;audio src=&quot;./audio/alarm.mp3&quot; autoplay loop&gt;&lt;/audio&gt;
+
+&lt;div id=&quot;wakingUp&quot;&gt;Golden light peeks down from underneath the clouds, and a noise beeps from somewhere behind me.
 
 //I’m waking up.//
 
 Skidding across the ash, I grab the axe from on top of a tree stump and hurry to the hut’s front door as the beeping echoes all around me. I ignore whatever Damien is shouting and slice the blade right through the padlock to throw open the door. Sunlight streams through the doorway, igniting four sleeping bodies whose eyes flutter open.
 
-I turn back to Damien as his body slowly dissolves into the ash on the ground, and the setting sun clouds my vision in gold.
+I turn back to Damien as his body slowly dissolves into the ash on the ground, and the setting sun clouds my vision in gold.&lt;/div&gt;
+
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
