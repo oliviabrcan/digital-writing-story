@@ -277,14 +277,89 @@ tw-story[tags~="nightmare"] {
   background-color: #b6b6b6;
   justify-content: center;
 }
-tw-story[tags~="35"] {
+tw-story[tags~="twentynine"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="thirty"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="thirtyone"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="thirtytwo"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="thirtythree"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="thirtyfour"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="thirtyfive"] {
   color: white;
   background-color: black;
 } 
-tw-story[tags~="48"] {
+tw-story[tags~="thirtysix"] {
+  color: white;
+  background-color: black;
+}
+tw-story[tags~="thirtyseven"] {
+  color: white;
+  background-color: black;
+}
+tw-story[tags~="thirtyeight"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="thirtynine"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="forty"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortyone"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortytwo"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortythree"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortyfour"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortyfive"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortysix"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortyseven"] {
+  color: white;
+  background-color: black;
+} 
+tw-story[tags~="fortyeight"] {
   color: white;
   background: linear-gradient(black, #777777);
 }
+tw-story[tags~="fortynine"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="fifty"] {
+  background-color: #b6b6b6;
+} 
+tw-story[tags~="fiftyone"] {
+  background-color: #b6b6b6;
+} 
 @-webkit-keyframes awake {
 	from { background-position: bottom; }
 	to   { background-position: top; }
@@ -327,7 +402,7 @@ tw-story[tags~="awake"] {
 
 // Harlowe Macro Framework, by Chapel; version 1.0.2
 ;!function(){"use strict";var r={major:1,minor:0,patch:2},e=[r.major,r.minor,r.patch].join(".");r.semantic=e,r=Object.freeze(r);var t=$("tw-storydata"),a=Object.freeze({name:t.attr("name"),ifid:t.attr("ifid")}),n=t.attr("format-version"),o=n.split("."),i=Object.freeze({major:o[0],minor:o[1],patch:o[2],semantic:n});window.Harlowe=window.Harlowe||{},window.Harlowe=Object.assign(window.Harlowe,{framework:r,API_ACCESS:Object.freeze({MACROS:require("macros"),STATE:require("state"),CHANGER:require("datatypes/changercommand"),ENGINE:require("engine")}),engine:i,story:a})}(),function(){"use strict";function e(r){return"number"==typeof r||"boolean"==typeof r||"string"==typeof r||null===r||Array.isArray(r)&&r.every(e)||r instanceof Set&&Array.from(r).every(e)||r instanceof Map&&Array.from(r.values()).every(e)||_changer.isPrototypeOf(r)}window.Harlowe=Object.assign(window.Harlowe,{helpers:{isSerialisable:e,isSerializable:e,arrayify:function(r,e){if(r){var t=[].slice.call(r);return void 0!==e&&(t=t.slice(e)),t}},getPassageData:function(r){var e=$('tw-passagedata[name="'+r+'"]');if(e[0])return e}}})}(),function(){"use strict";var n=window.localStorage||!1,o=Harlowe.story.ifid+"-tw-storage";function r(){try{if(!n)throw new Error("storage is inaccessible");n.setItem(o,JSON.stringify({ifid:Harlowe.story.ifid}))}catch(r){console.warn(r)}}function i(r){try{var e;if(n)return e=JSON.parse(n.getItem(o)),r&&r&&"string"==typeof r?e[r]:e;throw new Error("storage is inaccessible")}catch(r){console.warn(r)}}null==i()&&r(),Harlowe.storage={clear:r,save:function(r,e){try{if(!r||"string"!=typeof r)throw new TypeError("cannot store values without a valid storage key");if(void 0===e)throw new TypeError("cannot store undefined values");var t={};if(t[r]=e,!n)throw new Error("storage is inaccessible");var a=i();Object.assign(a,t),n.setItem(o,JSON.stringify(a))}catch(r){console.warn(r)}},load:i,remove:function(r){try{if(!r||"string"!=typeof r)throw new TypeError("cannot store values without a valid storage key");if(!n)throw new Error("storage is inaccessible");var e=i();e.hasOwnProperty(r)&&(delete e[r],n.setItem(o,JSON.stringify(e)))}catch(r){console.warn(r)}}}}(),function(){"use strict";function a(r,e,t){if(!(this instanceof a))return new a(r,e,t);this.name=r||"unknown",this.args=e||[],this.data=t||{},this.type=t&&t.type||"basic",this.fn=t&&t.fn||"handler","changer"===this.type&&("handler"===this.fn?this.instance=t&&t.instance||null:this.descriptor=t&&t.descriptor||null)}a.create=function(r,e,t){if(!r||"string"!=typeof r||!r.trim())throw new TypeError("Invalid macro name.");return e&&e instanceof Array||(e=[]),t&&"object"==typeof t||(t={type:"basic",fn:"handler"}),new a(r,e,t)},Object.assign(a.prototype,{clone:function(){return a.create(this.name,this.args,this.data)},syntax:function(){return"("+this.name+":)"},error:function(r,e){var t="Error in the "+this.syntax()+" macro: "+r;return e&&alert(t),console.warn("HARLOWE CUSTOM MACRO ERROR -> ",t),new Error(r)},typeCheck:function(r){r&&r instanceof Array||(r=Harlowe.helpers.arrayify(arguments));var n=this,o=[];if(r.forEach(function(r,e){var t=e+1,a=[];"string"==typeof r&&("any"===(a=r.includes("|")?r.split("|").map(function(r){return r.trim().toLowerCase()}):[r.trim().toLowerCase()])[0]||a.some(function(r){return typeof n.args[e]===r})||o.push("argument "+t+" should be a(n) "+a.join(" or ")))}),o.length)return n.error(o.join("; "))}}),window.Harlowe=Object.assign(window.Harlowe,{MacroContext:a})}(),function(){"use strict";var c=Harlowe.API_ACCESS.MACROS,l=Harlowe.API_ACCESS.CHANGER;window.Harlowe=Object.assign(window.Harlowe||{},{macro:function(r,e,t){if(!r||"string"!=typeof r||!r.trim())throw new TypeError("Invalid macro name.");if(!e||"function"!=typeof e)throw new TypeError("Invalid macro handler.");var a,n,o,i,s;t&&"function"==typeof t?(o=r,i=e,s=t,c.addChanger(o,function(){var r=Harlowe.helpers.arrayify(arguments,1),e=l.create(o,r),t=Harlowe.MacroContext.create(o,r,{type:"changer",fn:"handler",instance:e});return i.apply(t,r),e},function(){var r=Harlowe.helpers.arrayify(arguments),e=r.shift(),t=Harlowe.MacroContext.create(o,r,{type:"changer",fn:"changer",descriptor:e});s.apply(t,r)},c.TypeSignature.zeroOrMore(c.TypeSignature.Any))):(a=r,n=e,c.add(a,function(){var r=Harlowe.helpers.arrayify(arguments,1),e=Harlowe.MacroContext.create(a,r,{type:"basic",fn:"handler"}),t=n.apply(e,r);return null==t?"":t},c.TypeSignature.zeroOrMore(c.TypeSignature.Any)))}})}(),function(){"use strict";var t=Harlowe.API_ACCESS.STATE,e=Harlowe.API_ACCESS.ENGINE;function a(){return t.passage}window.Harlowe=Object.assign(window.Harlowe||{},{passage:a,tags:function(r){r=r||a();try{var e=Harlowe.helpers.getPassageData(r).attr("tags");return e?e.split(" "):[]}catch(r){return console.warn(r.message),[]}},goto:function(r){return e.goToPassage(r)},variable:function(r,e){if("$"!==r[0])throw new Error('cannot access variable "'+r+'"');if(r=r.substr(1),void 0!==e){if(!Harlowe.helpers.isSerialisable(e))throw new Error('The value passed to variable "'+r+'" cannot be serialized.');t.variables[r]=e}return t.variables[r]},visited:function(r){return t.passageNameVisited(r||a())},hasVisited:function(r){return 0<t.passageNameVisited(r||a())},turns:function(){return t.pastLength}})}();
-// end Harlowe Macro Framework</script><tw-passagedata pid="1" name="map" tags="imagemap1" position="1000,25" size="100,100">&lt;!-- Image Map Generated by http://www.image-map.net/ --&gt;
+// end Harlowe Macro Framework</script><tw-passagedata pid="1" name="map" tags="imagemap1" position="1075,25" size="100,100">&lt;!-- Image Map Generated by http://www.image-map.net/ --&gt;
 &lt;img class=&quot;dreammap1&quot; src=&quot;./images/dreammap3clouds.jpg&quot; usemap=&quot;#image-map&quot;&gt;
 
 &lt;map name=&quot;image-map&quot;&gt;
@@ -367,7 +442,7 @@ I turn away and wander into the trees, the shadow of leaves above casting over t
 
 “A few hours.” He says, his eyebrows furrowed.
 
-(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;eighteen]]] (stop:)]</tw-passagedata><tw-passagedata pid="5" name="nightmare" tags="nightmare" position="700,325" size="100,100">I’m standing in the opening of a forest, but what I see in front of me are scorched trees and an ashen ground. The sun is still up in the pine forest behind me, but the clouds in front are like smears of charcoal. Emitting from the ground is the same, smoky black substance I saw on the mountain earlier, except it’s coming from black whirlpools darker than night itself.
+(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;eighteen]]] (stop:)]</tw-passagedata><tw-passagedata pid="5" name="nightmare" tags="nightmare" position="775,475" size="100,100">I’m standing in the opening of a forest, but what I see in front of me are scorched trees and an ashen ground. The sun is still up in the pine forest behind me, but the clouds in front are like smears of charcoal. Emitting from the ground is the same, smoky black substance I saw on the mountain earlier, except it’s coming from black whirlpools darker than night itself.
 
 I step closer to Damien, remembering that he told me they’re ‘nothing we want to be near’, and follow him in his wide circle around the pool of darkness. My eyes sting with every cool breeze, as waves of ash come with it and leave a burnt, dry taste in my mouth. I don’t know how we went from sunlit forests to this, but I want to leave as quickly as possible.
 
@@ -423,7 +498,7 @@ I step closer to Damien, remembering that he told me they’re ‘nothing we wan
 [[waterfall]]&gt;
 &lt;/div&gt;
 
-&lt;div id=&quot;cloud3Overlay&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="dream map four" tags="imagemap4" position="850,350" size="100,100">&lt;!-- Image Map Generated by http://www.image-map.net/ --&gt;
+&lt;div id=&quot;cloud3Overlay&quot;&gt;&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="dream map four" tags="imagemap4" position="925,350" size="100,100">&lt;!-- Image Map Generated by http://www.image-map.net/ --&gt;
 &lt;img class=&quot;dreammap4&quot; src=&quot;./images/dreammap.jpg&quot; usemap=&quot;#image-map&quot;&gt;
 
 &lt;map name=&quot;image-map&quot;&gt;
@@ -685,19 +760,19 @@ He stares at me for a few seconds before lifting his shirt to reveal a scar trai
 
 I nod instead. “Okay. Then let’s keep going.”
 
-(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;dream map four]]] (stop:)]</tw-passagedata><tw-passagedata pid="38" name="29" tags="29" position="575,325" size="100,100">“Is the staff supposed to be here?” I whisper, my gaze darting around the landscape, only to notice more dead trees and many, many tree stumps.
+(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;dream map four]]] (stop:)]</tw-passagedata><tw-passagedata pid="38" name="29" tags="twentynine" position="625,450" size="100,100">“Is the staff supposed to be here?” I whisper, my gaze darting around the landscape, only to notice more dead trees and many, many tree stumps.
 
 “Yes. It won’t be far now, if it’s here at all.”
 
 (live:6s)[(t8n:&quot;dissolve&quot;)[Right, because it was just a rumour.](stop:)]
 
-(live: 7s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;30]]] (stop:)]</tw-passagedata><tw-passagedata pid="39" name="30" tags="30" position="425,325" size="100,100">I stare ahead of me as my stomach twists with anxiety. If the staff isn’t real, how am I supposed to get home? I don’t want to be stuck here forever, especially not in this forest.
+(live: 7s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;30]]] (stop:)]</tw-passagedata><tw-passagedata pid="39" name="30" tags="thirty" position="475,425" size="100,100">I stare ahead of me as my stomach twists with anxiety. If the staff isn’t real, how am I supposed to get home? I don’t want to be stuck here forever, especially not in this forest.
 
 When I shift my attention back to what’s in front of me, I notice a small, wooden hut with brown vines snaking across the roof and planks of wood over the windows. I start slowing down despite Damien walking straight toward it, finding more comfort in the open space of the dead forest rather than a spooky hut.
 
 “Damien, maybe you shouldn’t get too close.”
 
-(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;31]]] (stop:)]</tw-passagedata><tw-passagedata pid="40" name="31" tags="31" position="275,325" size="100,100">He turns around and stops when he sees that I have too. “It’s fine, Riley. The staff will be in there.”
+(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;31]]] (stop:)]</tw-passagedata><tw-passagedata pid="40" name="31" tags="thirtyone" position="325,475" size="100,100">He turns around and stops when he sees that I have too. “It’s fine, Riley. The staff will be in there.”
 
 “But what if it isn’t? What if it’s a trap?”
 
@@ -709,7 +784,7 @@ Damien sighs heavily and walks back to me. “You’re right. Why would a magica
 
 (live: 22s)[(t8n:&quot;dissolve&quot;) [My breath hitches in my throat, and I stumble back a step. “What?”] (stop:)]
 
-(live: 23s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;32]]] (stop:)]</tw-passagedata><tw-passagedata pid="41" name="32" tags="32" position="125,350" size="100,100">“You’re so ignorant, Riley – or whatever your name is.”
+(live: 23s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;32]]] (stop:)]</tw-passagedata><tw-passagedata pid="41" name="32" tags="thirtytwo" position="175,475" size="100,100">“You’re so ignorant, Riley – or whatever your name is.”
 
 I shake my head. “Whoever you are? But – but my name is Riley, right?”
 
@@ -721,13 +796,13 @@ He just laughs. “I don’t know! I made it up, I always do. I don’t know wha
 
 I wasn’t hopeful that someone would come to my rescue, but knowing this whole time that it was just Damien and I – that the people he told me were in the castle were never there in the first place – it makes my skin crawl.
 
-(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;33]]] (stop:)]</tw-passagedata><tw-passagedata pid="42" name="33" tags="" position="125,475" size="100,100">“What else did you lie about?” I shout, digging my feet into the ground in an attempt to slow him down. But he continues to drag me, and everything I do to fight against him only hurts me more.
+(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;33]]] (stop:)]</tw-passagedata><tw-passagedata pid="42" name="33" tags="thirtythree" position="25,575" size="100,100">“What else did you lie about?” I shout, digging my feet into the ground in an attempt to slow him down. But he continues to drag me, and everything I do to fight against him only hurts me more.
 
 “Do you want a list or something?”
 
 I cry out again, hopelessly, as I replay every moment Damien helped me to see where I went wrong, but my first mistake was catching his rope.
 
-(live: 5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;34]]] (stop:)]</tw-passagedata><tw-passagedata pid="43" name="34" tags="" position="125,600" size="100,100">“I don’t understand! What do you want from me?” he spins us around and fear encapsulates my entire being as I face the whirlpool of darkness. Every part of me that wanted an explanation disappeared. I just want to survive. “Damien!” my eyes are wide and bloodshot as he pushes me closer. “No! Damien, please!” 
+(live: 5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;34]]] (stop:)]</tw-passagedata><tw-passagedata pid="43" name="34" tags="thirtyfour" position="175,650" size="100,100">“I don’t understand! What do you want from me?” he spins us around and fear encapsulates my entire being as I face the whirlpool of darkness. Every part of me that wanted an explanation disappeared. I just want to survive. “Damien!” my eyes are wide and bloodshot as he pushes me closer. “No! Damien, please!” 
 
 “What do I want, you ask?” he mutters, his breath hot against my face. “I’m the collector of dreams, dreamer – and I want yours.”
 
@@ -737,7 +812,7 @@ He shoves me forward, and I scream through the pain searing my throat as my visi
 [[35]]&gt;
 &lt;/div&gt;
 
-(live: 22s)[(goto: &quot;35&quot;)]</tw-passagedata><tw-passagedata pid="44" name="35" tags="35" position="125,725" size="100,100">(t8n:&quot;instant&quot;)[Breath rattling in my throat.]
+(live: 22s)[(goto: &quot;35&quot;)]</tw-passagedata><tw-passagedata pid="44" name="35" tags="thirtyfive" position="325,625" size="100,100">(t8n:&quot;instant&quot;)[Breath rattling in my throat.]
 
 (live: 1.5s)[(t8n:&quot;instant&quot;)[Lips dry and broken.](stop:)]
 
@@ -749,55 +824,55 @@ He shoves me forward, and I scream through the pain searing my throat as my visi
 [[36]]&gt;
 &lt;/div&gt;
 
-(live: 6s)[(goto: &quot;36&quot;)]</tw-passagedata><tw-passagedata pid="45" name="37" tags="" position="425,950" size="100,100">Opening my eyes again, I see the ground covered in ash like the entire right side of my body. Slim, lifeless trees are scattered across the shadowed, barren landscape, and the sky is stained a blood-red with charcoal-black clouds smudged across it like stains.
+(live: 6s)[(goto: &quot;36&quot;)]</tw-passagedata><tw-passagedata pid="45" name="37" tags="thirtyseven" position="625,600" size="100,100">Opening my eyes again, I see the ground covered in ash like the entire right side of my body. Slim, lifeless trees are scattered across the shadowed, barren landscape, and the sky is stained a blood-red with charcoal-black clouds smudged across it like stains.
 
 Gulping, I look back at the trees. This place is like a mirror image of where I was, but ten times more horrifying. My energy is draining just from standing here, and the heat is burning and drying my skin, making me feel like I&#39;m going to vanish into the ashes beneath me.
 
-(live: 5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;38]]] (stop:)]</tw-passagedata><tw-passagedata pid="46" name="38" tags="38" position="250,1000" size="100,100">Movement from the corner of my eye jerks my attention toward it, and my heart plummets as it speeds up. Its long, thin arms whip back and forth with its legs as the red sun ignites a jagged face. My brain sends the message to run, but my body is still.
+(live: 5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;38]]] (stop:)]</tw-passagedata><tw-passagedata pid="46" name="38" tags="thirtyeight" position="750,675" size="100,100">Movement from the corner of my eye jerks my attention toward it, and my heart plummets as it speeds up. Its long, thin arms whip back and forth with its legs as the red sun ignites a jagged face. My brain sends the message to run, but my body is still.
 
 (live: 9s)[(t8n:&quot;instant&quot;)[I’m back in the quicksand.](stop:)]
 
-(live: 10.5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;39]]] (stop:)]</tw-passagedata><tw-passagedata pid="47" name="36" tags="36" position="250,850" size="100,100">&lt;div style=&quot;display:none;&quot;
+(live: 10.5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;39]]] (stop:)]</tw-passagedata><tw-passagedata pid="47" name="36" tags="thirtysix" position="475,575" size="100,100">&lt;div style=&quot;display:none;&quot;
 [[37]]&gt;
 &lt;/div&gt;
 
-(live: 5s)[(goto: &quot;37&quot;)]</tw-passagedata><tw-passagedata pid="48" name="39" tags="" position="250,1125" size="100,100">I don&#39;t move.
+(live: 5s)[(goto: &quot;37&quot;)]</tw-passagedata><tw-passagedata pid="48" name="39" tags="thirtynine" position="625,750" size="100,100">I don&#39;t move.
 
 &lt;div style=&quot;display:none;&quot;
 [[40]]&gt;
 &lt;/div&gt;
 
-(live: 1s)[(goto: &quot;40&quot;)]</tw-passagedata><tw-passagedata pid="49" name="40" tags="40" position="250,1250" size="100,100">It closes in.
+(live: 1s)[(goto: &quot;40&quot;)]</tw-passagedata><tw-passagedata pid="49" name="40" tags="forty" position="475,725" size="100,100">It closes in.
 
 &lt;div style=&quot;display:none;&quot;
 [[41]]&gt;
 &lt;/div&gt;
 
-(live: 1s)[(goto: &quot;41&quot;)]</tw-passagedata><tw-passagedata pid="50" name="41" tags="41" position="250,1375" size="100,100">I scream.
+(live: 1s)[(goto: &quot;41&quot;)]</tw-passagedata><tw-passagedata pid="50" name="41" tags="fortyone" position="325,750" size="100,100">I scream.
 
 &lt;div style=&quot;display:none;&quot;
 [[42]]&gt;
 &lt;/div&gt;
 
-(live: 1s)[(goto: &quot;42&quot;)]</tw-passagedata><tw-passagedata pid="51" name="42" tags="" position="250,1500" size="100,100">My stomach drops as I fall through the earth, and my mind slips away in an attempt to escape this feeling. //This feeling that I’m going to die.// But it’s yanked back in a second, forced to live until I don’t anymore.
+(live: 1s)[(goto: &quot;42&quot;)]</tw-passagedata><tw-passagedata pid="51" name="42" tags="fortytwo" position="175,775" size="100,100">My stomach drops as I fall through the earth, and my mind slips away in an attempt to escape this feeling. //This feeling that I’m going to die.// But it’s yanked back in a second, forced to live until I don’t anymore.
 
 &lt;div style=&quot;display:none;&quot;
 [[43]]&gt;
 &lt;/div&gt;
 
-(live: 8s)[(goto: &quot;43&quot;)]</tw-passagedata><tw-passagedata pid="52" name="43" tags="" position="250,1625" size="100,100">My back smacks into water, wiping the sweat off my forehead and replacing it with chills that rattle across my entire body. I kick my legs and swipe my hands through the water to push myself up. My fingertips scratch the surface when something latches onto my ankle and rips me down. 
+(live: 8s)[(goto: &quot;43&quot;)]</tw-passagedata><tw-passagedata pid="52" name="43" tags="fortythree" position="25,750" size="100,100">My back smacks into water, wiping the sweat off my forehead and replacing it with chills that rattle across my entire body. I kick my legs and swipe my hands through the water to push myself up. My fingertips scratch the surface when something latches onto my ankle and rips me down. 
 
 Red light beams through the hole I fell through, but no matter how hard I claw at the water, the light climbs higher and higher. Bubbles of air escape my mouth, and I&#39;m kicking until my chest tightens and my head aches.
 
-(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;44]]] (stop:)]</tw-passagedata><tw-passagedata pid="53" name="44" tags="" position="250,1750" size="100,100">//I can’t do this.//
+(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;44]]] (stop:)]</tw-passagedata><tw-passagedata pid="53" name="44" tags="fortyfour" position="50,900" size="100,100">//I can’t do this.//
 
-(live: 0.5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;45]]] (stop:)]</tw-passagedata><tw-passagedata pid="54" name="45" tags="" position="250,1875" size="100,100">When I’m sure I can’t swim anymore, the tension on my leg finally releases, and my frantic movements lift me above the surface in seconds. Gasping for air and scanning the cave for an exit, I see a faint blue light in the corner and swim toward it. 
+(live: 0.5s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;45]]] (stop:)]</tw-passagedata><tw-passagedata pid="54" name="45" tags="fortyfive" position="200,900" size="100,100">When I’m sure I can’t swim anymore, the tension on my leg finally releases, and my frantic movements lift me above the surface in seconds. Gasping for air and scanning the cave for an exit, I see a faint blue light in the corner and swim toward it. 
 
 The dark and cloudy water makes my skin crawl as I swim faster toward the blue light. Something has to be under me. It’s going to come back. It’s there. It’s under me. It’s under me.
 
 Tears stream down my face, but my gaze is locked on the light, and the second my foot touches the sand, I’m sprinting out of the water and don’t look back as I enter the next opening.
 
-(live: 6s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;46]]] (stop:)]</tw-passagedata><tw-passagedata pid="55" name="46" tags="" position="250,2000" size="100,100">I stop the second I see what’s inside this cave. The aqua crystals from the mountain. The same ones Damien called deadly. 
+(live: 6s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;46]]] (stop:)]</tw-passagedata><tw-passagedata pid="55" name="46" tags="fortysix" position="325,900" size="100,100">I stop the second I see what’s inside this cave. The aqua crystals from the mountain. The same ones Damien called deadly. 
 
 I pull my arms around myself and walk further into the cave until there’s nowhere else to walk. My knees buckle, and I drop to the floor, sobbing.
 
@@ -807,21 +882,21 @@ I pull my arms around myself and walk further into the cave until there’s nowh
 
 (live: 11s)[(t8n:&quot;dissolve&quot;) [&#39;&#39;//I let this happen.//&#39;&#39;] (stop:)]
 
-(live: 12s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;47]]] (stop:)]</tw-passagedata><tw-passagedata pid="56" name="47" tags="" position="250,2125" size="100,100">I lift my gaze, catching my broken reflection in the crystals in front of me. The longer I stare at them, the more inclined I am to reach out. There’s a chance Damien lied about them being dangerous, since he lied about everything else.
+(live: 12s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;47]]] (stop:)]</tw-passagedata><tw-passagedata pid="56" name="47" tags="fortyseven" position="475,875" size="100,100">I lift my gaze, catching my broken reflection in the crystals in front of me. The longer I stare at them, the more inclined I am to reach out. There’s a chance Damien lied about them being dangerous, since he lied about everything else.
 
 I sit up, taking a deep breath. He said, ‘These crystals are overwhelmingly powerful. We wouldn’t even survive contact with them’. But what if we could? 
 
 I stare at the crystals like they’re going to tell me the truth, but I know there’s only one way to find out, and if this is my last chance for escape – my last chance to get back home – I’ll take it.
 
-(live: 6s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;48]]] (stop:)]</tw-passagedata><tw-passagedata pid="57" name="48" tags="48" position="250,2250" size="100,100">I touch the crystal before I can convince myself otherwise and am sucked into a rush of cool air. It feels more like I’m floating rather than tumbling into a void, and in the next second, I’m lying on an ashen ground, staring at a smoky grey sky. 
+(live: 6s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;48]]] (stop:)]</tw-passagedata><tw-passagedata pid="57" name="48" tags="fortyeight" position="625,875" size="100,100">I touch the crystal before I can convince myself otherwise and am sucked into a rush of cool air. It feels more like I’m floating rather than tumbling into a void, and in the next second, I’m lying on an ashen ground, staring at a smoky grey sky. 
 
-(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;49]]] (stop:)]</tw-passagedata><tw-passagedata pid="58" name="49" tags="" position="250,2375" size="100,100">I stand up, and for the first time since I arrived here (live:2s)[(t8n:&quot;dissolve&quot;)[//I’m wide awake.//](stop:)]
+(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;49]]] (stop:)]</tw-passagedata><tw-passagedata pid="58" name="49" tags="fortynine" position="750,950" size="100,100">I stand up, and for the first time since I arrived here (live:2s)[(t8n:&quot;dissolve&quot;)[//I’m wide awake.//](stop:)]
 
-(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;50]]] (stop:)]</tw-passagedata><tw-passagedata pid="59" name="50" tags="" position="250,2500" size="100,100">Everything Damien told me makes sense. 
+(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;50]]] (stop:)]</tw-passagedata><tw-passagedata pid="59" name="50" tags="fifty" position="600,1025" size="100,100">Everything Damien told me makes sense. 
 
 He lied about the crystals because he knew they would ruin his plan to trap me here by exposing the truth. The truth that I’m //dreaming// – and that this is //my// dream world.
 
-(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;51]]] (stop:)]</tw-passagedata><tw-passagedata pid="60" name="51" tags="" position="250,2625" size="100,100">I spot something speeding toward me from the corner of my eye, and I duck as something else whips over my head. I rush backward to put some distance between us and am not surprised when I see Damien standing there holding a blackened tree branch.
+(live: 3s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;51]]] (stop:)]</tw-passagedata><tw-passagedata pid="60" name="51" tags="fiftyone" position="475,1025" size="100,100">I spot something speeding toward me from the corner of my eye, and I duck as something else whips over my head. I rush backward to put some distance between us and am not surprised when I see Damien standing there holding a blackened tree branch.
 
 “Let me guess, you found out about the crystals.” He scowls, adjusting his grasp on the branch.
 
@@ -839,7 +914,7 @@ He chuckles dryly. “Your mind is here, that’s all I need.”
 
 He charges at me again with his tree branch, but I dive under it and sprint for the hut. If this realm is still alive, there must be other dreamers here keeping it that way. Damien screams at me to stop, but it only fuels me to run faster. I’m not letting him get away with this, and this time, I’m making sure all of us get home.
 
-(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;awake]]] (stop:)]</tw-passagedata><tw-passagedata pid="61" name="awake" tags="awake" position="250,2750" size="100,100">&lt;audio src=&quot;./audio/alarm.mp3&quot; autoplay loop&gt;&lt;/audio&gt;
+(live: 10s)[(t8n:&quot;dissolve&quot;) [[[&lt;img class=&quot;arrow&quot; src=&quot;./images/arrow.png&quot;/&gt;-&gt;awake]]] (stop:)]</tw-passagedata><tw-passagedata pid="61" name="awake" tags="awake" position="300,1025" size="100,100">&lt;audio src=&quot;./audio/alarm.mp3&quot; autoplay loop&gt;&lt;/audio&gt;
 
 &lt;div id=&quot;wakingUp&quot;&gt;Golden light peeks down from underneath the clouds, and a noise beeps from somewhere behind me.
 
